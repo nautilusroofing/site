@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nautilus Roofing – A Semple-Gooder Company</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+  @font-face { font-family: 'Cooper BT'; src: local('Cooper BT'), local('CooperBT'); }
+  @font-face { font-family: 'Egyptian Slate'; src: local('Egyptian Slate'), local('EgyptianSlate'); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:    #8b2621;
+    --red-dk: #6e1e1a;
+    --red-lt: #a32e29;
+    --gold:   #fff4d4;
+    --cream:  #fff4d4;
+    --white:  #ffffff;
+    --dark:   #1a0a0a;
+    --muted:  rgba(255,244,212,0.65);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--red-dk);
+    border-bottom: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;     height: 85px;
+  }
+
+  .logo-block { display: flex; flex-direction: column; justify-content: center; }
+  .logo-top {
+    font-family: 'Cooper BT', 'Bookman Old Style', serif;
+    font-weight: 800; font-size: 2.1rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--cream); line-height: 1;
+  }
+  .logo-top span { color: var(--gold); }
+  .logo-bottom {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.58rem; font-weight: 300;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-top: 2px;
+  }
+
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--cream); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── ANNOUNCEMENT ── */
+  .announcement {
+    background: var(--gold);
+    color: var(--dark);
+    text-align: center;
+    padding: 0.75rem 5%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-top: 85px;
+  }
+  .announcement span {
+    font-weight: 300; letter-spacing: 0.08em;
+    text-transform: none; margin-left: 0.6rem; font-size: 0.78rem;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-left {
+    background: var(--red);
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5% 6rem 6%;
+    position: relative; overflow: hidden;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url('https://semplegooder.com/wp-content/uploads/2020/07/a-1.jpg') center/cover no-repeat;
+    opacity: 0.12; pointer-events: none;
+  }
+  .hero-left > * { position: relative; z-index: 1; }
+
+  .eyebrow {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.2rem;
+  }
+  .hero-title {
+    font-family: 'Cooper BT', 'Bookman Old Style', serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+    font-weight: 800; line-height: 1.1;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--cream); margin-bottom: 1.4rem;
+  }
+  .gold-bar { width: 55px; height: 3px; background: var(--gold); margin-bottom: 1.6rem; }
+  .hero-copy {
+    font-size: 0.97rem; font-weight: 300;
+    color: var(--muted); margin-bottom: 2.4rem; max-width: 480px;
+  }
+  .btn {
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.85rem 2.2rem;
+    background: var(--gold); color: var(--dark);
+    text-decoration: none; transition: opacity 0.2s; align-self: flex-start;
+  }
+  .btn:hover { opacity: 0.85; }
+
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ── SECTION SHARED ── */
+  .section-header { text-align: center; margin-bottom: 3.5rem; }
+  .section-label {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Egyptian Slate', 'Georgia', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700; color: var(--cream); margin-bottom: 1rem;
+  }
+  .gold-bar-c { width: 55px; height: 3px; background: var(--gold); margin: 0 auto; }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--red-dk);
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding: 6rem 6%;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px; max-width: 1080px; margin: 0 auto;
+  }
+  .service-card {
+    background: var(--red); padding: 2.6rem 2rem;
+    text-align: center; transition: background 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .service-card:hover { background: var(--red-lt); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--cream); margin-bottom: 0.6rem;
+  }
+  .service-card p { font-size: 0.82rem; color: var(--muted); font-weight: 300; }
+
+  /* ── ABOUT ── */
+  #about { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+  .about-img { position: relative; overflow: hidden; }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-text {
+    background: var(--red); padding: 6rem 5%;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .about-text p {
+    font-size: 0.97rem; font-weight: 300;
+    color: var(--muted); margin-top: 1.2rem; max-width: 460px;
+  }
+
+  /* ── PHOTO STRIP ── */
+  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); height: 260px; overflow: hidden; }
+  .photo-strip div { overflow: hidden; }
+  .photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+  .photo-strip div:hover img { transform: scale(1.04); }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--red-dk);
+    border-top: 2px solid var(--gold);
+    padding: 7rem 6%; text-align: center;
+  }
+  #contact p {
+    font-size: 0.95rem; font-weight: 300; color: var(--muted);
+    margin: 1.4rem auto 2.6rem; max-width: 500px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); border-top: 2px solid var(--red);
+    padding: 2.4rem 6%;
+    display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .footer-left { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); }
+  .footer-left small {
+    display: block; font-family: 'Open Sans', sans-serif;
+    font-size: 0.6rem; font-weight: 300;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-top: 2px;
+  }
+  .footer-right a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; transition: color 0.2s;
+  }
+  .footer-right a:hover { color: var(--gold); }
+  .footer-copy { width: 100%; text-align: center; font-size: 0.6rem; color: #555; margin-top: 0.6rem; letter-spacing: 0.1em; }
+
+  @media (max-width: 768px) {
+    #hero, #about { grid-template-columns: 1fr; }
+    .hero-right { height: 320px; }
+    .about-img { height: 280px; }
+    .photo-strip { grid-template-columns: 1fr 1fr; height: 200px; }
+    .photo-strip div:last-child { display: none; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-block">
+    <span class="logo-top">Nautilus <span>Roofing</span></span>
+    <span class="logo-bottom">A Semple-Gooder Company &nbsp;·&nbsp; Est. 1947</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ANNOUNCEMENT -->
+<div class="announcement">
+  Semple Gooder Expands to the United States
+  <span>— Nautilus Roofing is proud to bring Canada's leading roofing expertise to the American Midwest. Formal announcement coming soon.</span>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Commercial &amp; Industrial Roofing · Midwest USA</p>
+    <h1 class="hero-title">Expertise &amp;<br>Reliability</h1>
+    <div class="gold-bar"></div>
+    <p class="hero-copy">
+      Nautilus Roofing, a Semple-Gooder company, is proud to offer a robust portfolio of commercial and industrial roofing services to leading clients across the Midwest. Semple Gooder brings years of expertise as one of the leading roofing contractors in Canada, offering a broad range of roofing and maintenance services. As Semple expands its North American presence, Nautilus brings expertise in roofing systems and construction management to provide top tier solutions for their clients and trusted partners.
+    </p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </div>
+  <div class="hero-right">
+    <img src="https://lh3.googleusercontent.com/d/12oArvIvp4bJg8T8Vio-duXnWAzdZwR2B" alt="Flat industrial rooftop"/>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-title">Our Services</h2>
+    <div class="gold-bar-c"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>New Roofing</h3>
+      <p>Full-scope new roof installations for commercial, industrial, and institutional facilities across the Midwest.</p>
+    </div>
+    <div class="service-card">
+      <h3>Re-Roofing</h3>
+      <p>Expert replacement and roofing system upgrades, minimizing operational disruption throughout construction.</p>
+    </div>
+    <div class="service-card">
+      <h3>Maintenance &amp; Service</h3>
+      <p>Preventative maintenance programs and rapid emergency response to protect your roofing investment.</p>
+    </div>
+    <div class="service-card">
+      <h3>Construction Management</h3>
+      <p>End-to-end project oversight ensuring quality, safety, and on-time, on-budget delivery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img">
+    <img src="https://semplegooder.com/wp-content/themes/semplegooder/assets/img/front-page/about.jpg" alt="Semple-Gooder roofing work"/>
+  </div>
+  <div class="about-text">
+    <span class="section-label">Our Pedigree</span>
+    <h2 class="section-title">Backed by<br>Decades of Expertise</h2>
+    <div class="gold-bar"></div>
+    <p>Founded in 1947, Semple Gooder has served Ontario's Industrial, Commercial and Institutional communities for over 70 years, earning a reputation as one of Canada's most trusted roofing contractors.</p>
+    <p style="margin-top:1rem;">Nautilus Roofing carries that legacy into the American Midwest — combining proven systems, certified tradespeople, and an unwavering commitment to delivering durable, long-lasting roofing solutions for every client and partner we serve.</p>
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div><img src="https://semplegooder.com/wp-content/uploads/2020/07/a-5.jpg" alt="Project photo"/></div>
+  <div><img src="https://semplegooder.com/wp-content/uploads/2020/07/a-8.jpg" alt="Project photo"/></div>
+  <div><img src="https://semplegooder.com/wp-content/uploads/2020/07/a-11.jpg" alt="Project photo"/></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-label">Reach Out</span>
+  <h2 class="section-title">Contact Us</h2>
+  <div class="gold-bar-c"></div>
+  <p>Ready to discuss your next commercial or industrial roofing project in the Midwest? Our team is here to help.</p>
+  <a class="btn" href="mailto:info@nautilusroofing.com">info@nautilusroofing.com</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    Nautilus Roofing
+    <small>A Semple-Gooder Company · Est. 1947</small>
+  </div>
+  <div class="footer-right">
+    <a href="https://semplegooder.com" target="_blank" rel="noopener">Visit Semple-Gooder ↗</a>
+  </div>
+  <p class="footer-copy">© 2025 Nautilus Roofing. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
