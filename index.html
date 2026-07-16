@@ -5,239 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nautilus Roofing – A Semple-Gooder Company</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
-<style>
-  @font-face { font-family: 'Cooper BT'; src: local('Cooper BT'), local('CooperBT'); }
-  @font-face { font-family: 'Egyptian Slate'; src: local('Egyptian Slate'), local('EgyptianSlate'); }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --red:    #8b2621;
-    --red-dk: #6e1e1a;
-    --red-lt: #a32e29;
-    --gold:   #fff4d4;
-    --cream:  #fff4d4;
-    --white:  #ffffff;
-    --dark:   #1a0a0a;
-    --muted:  rgba(255,244,212,0.65);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Open Sans', sans-serif;
-    background: var(--dark);
-    color: var(--cream);
-    line-height: 1.7;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    background: var(--red-dk);
-    border-bottom: 2px solid var(--gold);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%;     height: 85px;
-  }
-
-  .logo-block { display: flex; flex-direction: column; justify-content: center; }
-  .logo-top {
-    font-family: 'Cooper BT', 'Bookman Old Style', serif;
-    font-weight: 800; font-size: 2.1rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--cream); line-height: 1;
-  }
-  .logo-top span { color: var(--gold); }
-  .logo-bottom {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.58rem; font-weight: 300;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--gold); margin-top: 2px;
-  }
-
-  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-  .nav-links a {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--cream); text-decoration: none; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-
-  /* ── ANNOUNCEMENT ── */
-  .announcement {
-    background: var(--gold);
-    color: var(--dark);
-    text-align: center;
-    padding: 0.75rem 5%;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    margin-top: 85px;
-  }
-  .announcement span {
-    font-weight: 300; letter-spacing: 0.08em;
-    text-transform: none; margin-left: 0.6rem; font-size: 0.78rem;
-  }
-
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero-left {
-    background: var(--red);
-    display: flex; flex-direction: column;
-    justify-content: center;
-    padding: 6rem 5% 6rem 6%;
-    position: relative; overflow: hidden;
-  }
-  .hero-left::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: url('https://semplegooder.com/wp-content/uploads/2020/07/a-1.jpg') center/cover no-repeat;
-    opacity: 0.12; pointer-events: none;
-  }
-  .hero-left > * { position: relative; z-index: 1; }
-
-  .eyebrow {
-    font-size: 0.65rem; font-weight: 600;
-    letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.2rem;
-  }
-  .hero-title {
-    font-family: 'Cooper BT', 'Bookman Old Style', serif;
-    font-size: clamp(2.8rem, 5.5vw, 4.4rem);
-    font-weight: 800; line-height: 1.1;
-    text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--cream); margin-bottom: 1.4rem;
-  }
-  .gold-bar { width: 55px; height: 3px; background: var(--gold); margin-bottom: 1.6rem; }
-  .hero-copy {
-    font-size: 0.97rem; font-weight: 300;
-    color: var(--muted); margin-bottom: 2.4rem; max-width: 480px;
-  }
-  .btn {
-    display: inline-block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    padding: 0.85rem 2.2rem;
-    background: var(--gold); color: var(--dark);
-    text-decoration: none; transition: opacity 0.2s; align-self: flex-start;
-  }
-  .btn:hover { opacity: 0.85; }
-
-  .hero-right { position: relative; overflow: hidden; }
-  .hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* ── SECTION SHARED ── */
-  .section-header { text-align: center; margin-bottom: 3.5rem; }
-  .section-label {
-    font-size: 0.65rem; font-weight: 600;
-    letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--gold); display: block; margin-bottom: 0.8rem;
-  }
-  .section-title {
-    font-family: 'Egyptian Slate', 'Georgia', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 700; color: var(--cream); margin-bottom: 1rem;
-  }
-  .gold-bar-c { width: 55px; height: 3px; background: var(--gold); margin: 0 auto; }
-
-  /* ── SERVICES ── */
-  #services {
-    background: var(--red-dk);
-    border-top: 2px solid var(--gold);
-    border-bottom: 2px solid var(--gold);
-    padding: 6rem 6%;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2px; max-width: 1080px; margin: 0 auto;
-  }
-  .service-card {
-    background: var(--red); padding: 2.6rem 2rem;
-    text-align: center; transition: background 0.2s;
-    position: relative; overflow: hidden;
-  }
-  .service-card::before {
-    content: ''; position: absolute; bottom: 0; left: 0;
-    width: 100%; height: 3px; background: var(--gold);
-    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
-  }
-  .service-card:hover { background: var(--red-lt); }
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; color: var(--cream); margin-bottom: 0.6rem;
-  }
-  .service-card p { font-size: 0.82rem; color: var(--muted); font-weight: 300; }
-
-  /* ── ABOUT ── */
-  #about { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
-  .about-img { position: relative; overflow: hidden; }
-  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .about-text {
-    background: var(--red); padding: 6rem 5%;
-    display: flex; flex-direction: column; justify-content: center;
-  }
-  .about-text p {
-    font-size: 0.97rem; font-weight: 300;
-    color: var(--muted); margin-top: 1.2rem; max-width: 460px;
-  }
-
-  /* ── PHOTO STRIP ── */
-  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); height: 260px; overflow: hidden; }
-  .photo-strip div { overflow: hidden; }
-  .photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
-  .photo-strip div:hover img { transform: scale(1.04); }
-
-  /* ── CONTACT ── */
-  #contact {
-    background: var(--red-dk);
-    border-top: 2px solid var(--gold);
-    padding: 7rem 6%; text-align: center;
-  }
-  #contact p {
-    font-size: 0.95rem; font-weight: 300; color: var(--muted);
-    margin: 1.4rem auto 2.6rem; max-width: 500px;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--dark); border-top: 2px solid var(--red);
-    padding: 2.4rem 6%;
-    display: flex; flex-wrap: wrap;
-    align-items: center; justify-content: space-between; gap: 1rem;
-  }
-  .footer-left { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); }
-  .footer-left small {
-    display: block; font-family: 'Open Sans', sans-serif;
-    font-size: 0.6rem; font-weight: 300;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold); margin-top: 2px;
-  }
-  .footer-right a {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.65rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--muted); text-decoration: none; transition: color 0.2s;
-  }
-  .footer-right a:hover { color: var(--gold); }
-  .footer-copy { width: 100%; text-align: center; font-size: 0.6rem; color: #555; margin-top: 0.6rem; letter-spacing: 0.1em; }
-
-  @media (max-width: 768px) {
-    #hero, #about { grid-template-columns: 1fr; }
-    .hero-right { height: 320px; }
-    .about-img { height: 280px; }
-    .photo-strip { grid-template-columns: 1fr 1fr; height: 200px; }
-    .photo-strip div:last-child { display: none; }
-    .nav-links { display: none; }
-  }
-</style>
+<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -250,6 +18,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="vendor.html">Vendors</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -314,6 +83,10 @@
     <div class="gold-bar"></div>
     <p>Founded in 1947, Semple Gooder has served Ontario's Industrial, Commercial and Institutional communities for over 70 years, earning a reputation as one of Canada's most trusted roofing contractors.</p>
     <p style="margin-top:1rem;">Nautilus Roofing carries that legacy into the American Midwest — combining proven systems, certified tradespeople, and an unwavering commitment to delivering durable, long-lasting roofing solutions for every client and partner we serve.</p>
+    <div class="about-buttons">
+      <button class="btn" onclick="openOverlay('pr-overlay')">Read More</button>
+      <button class="btn btn-outline" onclick="openOverlay('president-overlay')">Our President</button>
+    </div>
   </div>
 </section>
 
@@ -344,6 +117,72 @@
   </div>
   <p class="footer-copy">© 2025 Nautilus Roofing. All rights reserved.</p>
 </footer>
+
+<!-- PR OVERLAY -->
+<div class="overlay" id="pr-overlay">
+  <button class="overlay-close" onclick="closeOverlay('pr-overlay')">✕ Close</button>
+
+  <div class="pr-header">
+    <div>
+      <div class="logo-top">Nautilus <span>Roofing</span></div>
+      <div class="logo-bottom">A Semple Gooder Company</div>
+    </div>
+    <div class="pr-header-contact">
+      11845 Brookfield St.<br>Livonia, MI 48154<br>(734) 524-0155
+    </div>
+  </div>
+
+  <div class="overlay-inner">
+    <div class="pr-headline">Nautilus Roofing, a Semple-Gooder Company, Launches Operations Across the Midwest</div>
+    <div class="overlay-body">
+      <p><strong>DETROIT, MICH.</strong> — Nautilus Roofing, a Semple-Gooder company, today announced its launch as a premier commercial and industrial roofing contractor serving clients throughout the Midwest.</p>
+      <p>Headquartered in the Detroit area, Nautilus Roofing combines local leadership with the expertise and resources of Semple-Gooder, one of Canada's leading roofing contractors. As Semple-Gooder continues to expand its North American presence, Nautilus brings specialized roofing knowledge and construction management expertise to commercial, industrial, and institutional clients across the region.</p>
+      <p>The company is led by Scott Nemecek, President of Nautilus Roofing, with Patrick Shain overseeing operations. Together with Mark Baxter, President of Semple-Gooder, the leadership team brings hundreds of years of combined roofing, construction, and project management experience to the business.</p>
+      <p>Nautilus Roofing was established to serve organizations requiring a trusted roofing partner capable of delivering complex projects safely, efficiently, and with minimal disruption to ongoing operations.</p>
+      <p>"The Midwest is home to some of North America's most important manufacturing, industrial, and commercial facilities," said Scott Nemecek, President of Nautilus Roofing. "Our team understands the unique challenges these facilities face and the importance of delivering roofing solutions that support long-term operational reliability."</p>
+      <p>Nemecek added, "By combining local expertise with the strength and experience of Semple-Gooder, we're able to provide clients with exceptional service, proven project execution, and the resources necessary to successfully manage projects of any size or complexity."</p>
+      <p>Nautilus Roofing offers a comprehensive portfolio of commercial and industrial roofing services, including new roof installations, re-roofing projects, preventative maintenance programs, emergency service response, and full-scale construction management. The company serves clients across a variety of sectors, including manufacturing, automotive, industrial, commercial, and institutional markets.</p>
+      <p>According to Mark Baxter, President of Semple-Gooder, the launch represents an important milestone in the company's long-term growth strategy.</p>
+      <p>"Nautilus Roofing reflects our commitment to bringing the experience, quality, and customer-focused approach that have defined Semple-Gooder for decades to clients throughout the Midwest," said Baxter. "With Scott Nemecek and Patrick Shain leading the organization, Nautilus is exceptionally well-positioned to support customers with reliable roofing solutions and professional project management from planning through completion."</p>
+      <h3>Core Service Areas</h3>
+      <ul>
+        <li>New roofing installations for commercial, industrial, and institutional facilities</li>
+        <li>Re-roofing and roofing system upgrades designed to minimize operational disruption</li>
+        <li>Preventative maintenance and emergency service programs that protect roofing assets</li>
+        <li>Construction management services that ensure quality, safety, schedule adherence, and budget control</li>
+      </ul>
+      <p>With strong local leadership, extensive industry experience, and the backing of an established North American roofing contractor, Nautilus Roofing is positioned to become a trusted partner for facility owners and property managers throughout the Midwest.</p>
+    </div>
+
+    <div class="pr-footer">
+      <h3>About Nautilus Roofing</h3>
+      <p>Nautilus Roofing, a Semple-Gooder company, provides commercial and industrial roofing services throughout the Midwest. Based in Detroit, the company specializes in new roofing, re-roofing, maintenance and service programs, and construction management for commercial, industrial, and institutional facilities.</p>
+      <h3 style="margin-top:1.4rem;">About Semple-Gooder</h3>
+      <p>Semple-Gooder is one of Canada's leading roofing contractors, providing roofing, maintenance, and construction services to commercial, industrial, and institutional clients. With decades of experience and a reputation for quality workmanship and project execution, the company continues to expand its presence across North America.</p>
+      <div class="pr-media-contact">Media Contact &nbsp;·&nbsp; <span><a href="mailto:info@nautilus-roofing.com">info@nautilus-roofing.com</a></span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRESIDENT OVERLAY -->
+<div class="overlay" id="president-overlay">
+  <button class="overlay-close" onclick="closeOverlay('president-overlay')">✕ Close</button>
+  <div class="overlay-inner">
+    <span class="overlay-eyebrow">Meet Our President</span>
+    <div class="overlay-title">Scott Nemecek</div>
+    <div class="overlay-subtitle">President, Nautilus Roofing</div>
+    <div class="overlay-divider"></div>
+    <div class="overlay-body">
+      <p>Scott Nemecek is President of Nautilus Roofing, a Semple-Gooder company, where he leads strategic growth, operational excellence, and client partnerships across the commercial and industrial roofing sector. With an extensive background in construction and business leadership, Scott has built a reputation for delivering high-quality projects, fostering strong customer relationships, and developing high-performing teams focused on safety, innovation, and long-term value.</p>
+      <p>Throughout his career, Scott has held leadership roles that have strengthened his expertise in project management, business development, operations, and customer service. His extensive experience across a broad range of construction markets—including institutional, automotive, federal, power and energy, petrochemical, municipal, and K-12 and higher education sectors—has provided him with a comprehensive understanding of complex building systems, large-scale project execution, and the evolving needs of commercial and industrial property owners.</p>
+      <p>Today, Scott leads Nautilus Roofing as it expands its presence throughout the Midwest, providing clients with comprehensive roofing solutions, construction management expertise, and exceptional service. Under his leadership, Nautilus continues to deliver dependable, high-performance roofing systems that help customers protect and maximize the value of their facilities.</p>
+      <p>Nautilus Roofing, a Semple-Gooder company, proudly offers a robust portfolio of commercial and industrial roofing services to leading clients across the Midwest. Backed by the strength and experience of Semple Gooder, one of Canada's leading roofing contractors, Nautilus combines decades of roofing expertise with proven construction management capabilities to deliver top-tier solutions for clients and trusted partners throughout North America.</p>
+    </div>
+  </div>
+</div>
+
+<script src="site.js"></script>
 
 </body>
 </html>
